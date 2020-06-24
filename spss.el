@@ -12,11 +12,11 @@
 ;; URL: https://github.com/vapniks/spss
 ;; Keywords: languages
 ;; Compatibility: GNU Emacs 24.3.1
-;; Package-Requires:  
+;; Package-Requires:
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,7 +37,7 @@
 ;; along with this program; see the file COPYING.
 ;; If not, see <http://www.gnu.org/licenses/>.
 
-;;; Commentary: 
+;;; Commentary:
 ;;
 ;; Bitcoin donations gratefully accepted: 1MSYn98e4FpXYgihMpqFN4AMSZKsCGKHKX
 ;;
@@ -53,7 +53,7 @@
 ;; Put spss.el in a directory in your load-path, e.g. ~/.emacs.d/
 ;; You can add a directory to your load-path with the following line in ~/.emacs
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
-;; where ~/elisp is the directory you want to add 
+;; where ~/elisp is the directory you want to add
 ;; (you don't need to do this for ~/.emacs.d - it's added by default).
 ;;
 ;; Add the following to your ~/.emacs startup file.
@@ -71,14 +71,14 @@
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/05/13
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
@@ -130,7 +130,7 @@
   "Indent current line as spss code."
   (interactive)
   (beginning-of-line)
-  (if (bobp) 
+  (if (bobp)
       ;; if at beginning of buffer, indent to start of line
       (indent-line-to 0)
     (let ((not-indented t) cur-indent)
@@ -148,7 +148,7 @@
 	    (while not-indented
 	      (forward-line -1)
 	      (if (looking-at "^[ \t]*\\(end if\\|end repeat\\|tms end\\)")
-		  ;; if we find a block ending then we are not in a block, 
+		  ;; if we find a block ending then we are not in a block,
 		  ;; so indent to same level as block ending
 		  (progn
 		    (setq cur-indent (current-indentation))
@@ -189,7 +189,7 @@
   (set (make-local-variable 'font-lock-defaults) '(spss-font-lock-keywords nil t))
   (set (make-local-variable 'indent-line-function) 'spss-indent-line)
   (setq comment-start "*")
-  (setq comment-end ".")
+  ;; (setq comment-end ".")
   (local-set-key (kbd "C-c C-c") 'comment-region)
   (local-set-key (kbd "C-c C-u") 'uncomment-region)
   (setq major-mode 'spss-mode)
@@ -202,10 +202,3 @@
 ;; (yaoddmuse-post "EmacsWiki" "spss.el" (buffer-name) (buffer-string) "update")
 
 ;;; spss.el ends here
-
-
-
-	  
-
-
-
